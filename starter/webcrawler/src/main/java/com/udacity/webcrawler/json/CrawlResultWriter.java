@@ -1,7 +1,11 @@
 package com.udacity.webcrawler.json;
 
-import java.io.Writer;
+import com.fasterxml.jackson.core.io.UTF8Writer;
+
+import java.io.*;
+import java.nio.file.Files;
 import java.nio.file.Path;
+import java.nio.file.StandardOpenOption;
 import java.util.Objects;
 
 /**
@@ -29,6 +33,19 @@ public final class CrawlResultWriter {
     // This is here to get rid of the unused variable warning.
     Objects.requireNonNull(path);
     // TODO: Fill in this method.
+    try(BufferedWriter writer = Files.newBufferedWriter(path)) {
+      if (Files.exists(path)){
+//        writer.write(data from json parse to string and append it)
+        write(writer);
+      } else {
+//        writer.append(file does not exist create el and write to it)
+      }
+
+    } catch (IOException e) {
+      e.printStackTrace();
+
+    }
+
   }
 
   /**

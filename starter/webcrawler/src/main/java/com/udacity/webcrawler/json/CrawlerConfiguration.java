@@ -253,7 +253,7 @@ public final class CrawlerConfiguration {
      *
      * <p>See {@link #getImplementationOverride()}.
      */
-
+    @JsonProperty("implementationOverride")
     public Builder setImplementationOverride(String implementationOverride) {
       this.implementationOverride = Objects.requireNonNull(implementationOverride);
       return this;
@@ -275,7 +275,7 @@ public final class CrawlerConfiguration {
      *
      * <p>See {@link #getTimeout()}.
      */
-    @JsonProperty("timeSeconds")
+    @JsonProperty("timeoutSeconds")
     public Builder setTimeoutSeconds(int seconds) {
       this.timeoutSeconds = seconds;
       return this;

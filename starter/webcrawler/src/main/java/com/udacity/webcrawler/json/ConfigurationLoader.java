@@ -22,7 +22,7 @@ public final class ConfigurationLoader {
    * Create a {@link ConfigurationLoader} that loads configuration from the given {@link Path}.
    */
   public ConfigurationLoader(Path path) {
-    this.path = Objects.requireNonNull(path);
+    this.path = path;
   }
 
   /**

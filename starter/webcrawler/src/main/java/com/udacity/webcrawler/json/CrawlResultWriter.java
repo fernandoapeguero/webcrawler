@@ -21,7 +21,7 @@ public final class CrawlResultWriter {
    * Creates a new {@link CrawlResultWriter} that will write the given {@link CrawlResult}.
    */
   public CrawlResultWriter(CrawlResult result) {
-    this.result = Objects.requireNonNull(result);
+    this.result = result;
   }
 
   /**
@@ -34,7 +34,18 @@ public final class CrawlResultWriter {
    */
   public void write(Path path) {
     // This is here to get rid of the unused variable warning.
-    Objects.requireNonNull(path);
+    ObjectMapper objectMapper = new ObjectMapper();
+    objectMapper.disable(JsonGenerator.Feature.AUTO_CLOSE_TARGET);
+
+      try (BufferedWriter writer = Files.newBufferedWriter(path)) {
+        if(!Files.exists(path)){
+          Files.createFile(path);
+        }
+
+        objectMapper.writeValue(writer, result);
+      } catch (IOException e) {
+        e.printStackTrace();
+      }
 
   }
 

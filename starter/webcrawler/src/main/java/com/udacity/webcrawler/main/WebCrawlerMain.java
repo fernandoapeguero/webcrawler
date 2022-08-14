@@ -1,5 +1,6 @@
 package com.udacity.webcrawler.main;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.inject.Guice;
 import com.udacity.webcrawler.WebCrawler;
 import com.udacity.webcrawler.WebCrawlerModule;
@@ -36,6 +37,16 @@ public final class WebCrawlerMain {
 
     CrawlResult result = crawler.crawl(config.getStartPages());
     CrawlResultWriter resultWriter = new CrawlResultWriter(result);
+
+    ObjectMapper mapper = new ObjectMapper();
+
+    if(!config.getResultPath().equals("")){
+       resultWriter.write(Path.of(config.getResultPath()));
+    } else {
+      OutputStreamWriter writer = new OutputStreamWriter(System.out);
+      resultWriter.write(writer);
+    }
+
     // TODO: Write the crawl results to a JSON file (or System.out if the file name is empty)
     // TODO: Write the profile data to a text file (or System.out if the file name is empty)
   }

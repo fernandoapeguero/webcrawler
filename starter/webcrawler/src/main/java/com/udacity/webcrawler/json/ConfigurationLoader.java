@@ -32,7 +32,7 @@ public final class ConfigurationLoader {
    */
 
   public CrawlerConfiguration load() {
-    // TODO: Fill in this method.
+
     ObjectMapper mapper = new ObjectMapper();
     mapper.disable(JsonParser.Feature.AUTO_CLOSE_SOURCE);
 

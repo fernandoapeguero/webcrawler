@@ -30,8 +30,8 @@ public interface PageParser {
     private final List<String> links;
 
     private Result(Map<String, Integer> wordCounts, List<String> links) {
-      this.wordCounts = Objects.requireNonNull(wordCounts);
-      this.links = Objects.requireNonNull(links);
+      this.wordCounts = wordCounts;
+      this.links = links;
     }
 
     /**
@@ -69,7 +69,7 @@ public interface PageParser {
        * Adds the given link, if it has not already been added.
        */
       void addLink(String link) {
-        links.add(Objects.requireNonNull(link));
+        links.add(link);
       }
 
       /**

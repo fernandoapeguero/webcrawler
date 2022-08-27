@@ -47,7 +47,7 @@ public final class WebCrawlerMain {
       resultWriter.write(writer);
     }
 
-    // TODO: Write the crawl results to a JSON file (or System.out if the file name is empty)
+    //  Write the crawl results to a JSON file (or System.out if the file name is empty)
     // TODO: Write the profile data to a text file (or System.out if the file name is empty)
   }
 
